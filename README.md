@@ -6,7 +6,7 @@
 * initDatabase.py : this file can e executed with python to create the database if not already created. It executes the code inside the createDatabase.sql file.
 * database.db : the database file.
 
-<h2>database<h2>
+<h2>database</h2>
 The database was made using SQLite. It allows the data to persist and it was easier to have only one database file inside the repository of the project.
 The database has only one table named "sensors". This table contains 3 columns :
 
@@ -20,15 +20,24 @@ No arbitrary data for sensors are stored.
 You do not have to use initDatabase.py file as the database file is already in the repository.
 
 It is easier to execute the app on a Linux, Unbuntu, MacOS or any similar system but Windows.
-First you need to run the virtual environment. To do so, open a terminal inside the repository of the project and run the command : 
+First you need to run the virtual environment. To do so, open a terminal/shell inside the repository of the project and run the command : 
 <pre>
-        $ source env/bin/activate
+    $ source env/bin/activate
 </pre>
 Then run the command :
 <pre>
-        $ flask run
+    $ flask run
 </pre>
 The server is running in localhost, as for this exercice I did not think it was useful to really make it run online.
+If the server is still not running. You may need to install flask with pip once the virtual environment is run ($ pip install flask). And then also install the requests module :
+<pre>
+    $ pip install requests
+</pre>
+Then you may need to indicate to flask where is the app. Run the following commands inside the terminal :
+<pre>
+    $ export FLASK_APP = app
+    $ export FLASK_ENV = development
+</pre>
 
 Once the server is running, you will have 2 usable endpoints:
 * /registerSensor : this endpoint allows user to save a new sensor to the database. It takes to parameters, "countryName" and "cityName", which are both strings.
